@@ -30,18 +30,7 @@ const AddRemoveActions = ({ isGroupFilter = false, index }) => {
   }, [dispatch, isGroupFilter, index]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        ".MuiButtonBase-root": {
-          textTransform: "none",
-        },
-        "&:hover .MuiButtonBase-root": {
-          visibility: "visible",
-        },
-      }}
-    >
+    <Box sx={styles.mainBox}>
       <Button
         size="small"
         variant="text"
@@ -52,7 +41,7 @@ const AddRemoveActions = ({ isGroupFilter = false, index }) => {
       </Button>
       {!isGroupFilter && (
         <Button
-          sx={{ fontSize: "12px", visibility: "hidden" }}
+          sx={styles.btn}
           size="small"
           variant="text"
           onClick={handleOnAddGroup}
@@ -62,7 +51,7 @@ const AddRemoveActions = ({ isGroupFilter = false, index }) => {
         </Button>
       )}
       <Button
-        sx={{ marginLeft: "auto", fontSize: "12px", visibility: "hidden" }}
+        sx={styles.clearBtn}
         size="small"
         variant="text"
         onClick={handleOnClearAllFilter}
@@ -71,6 +60,21 @@ const AddRemoveActions = ({ isGroupFilter = false, index }) => {
       </Button>
     </Box>
   );
+};
+
+const styles = {
+  mainBox: {
+    display: "flex",
+    flexDirection: "row",
+    ".MuiButtonBase-root": {
+      textTransform: "none",
+    },
+    "&:hover .MuiButtonBase-root": {
+      visibility: "visible",
+    },
+  },
+  btn: { fontSize: "12px", visibility: "hidden" },
+  clearBtn: { marginLeft: "auto", fontSize: "12px", visibility: "hidden" },
 };
 
 export default AddRemoveActions;

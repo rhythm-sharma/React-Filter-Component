@@ -12,33 +12,17 @@ import { useDispatch } from "react-redux";
 
 const FilterGroup = ({ item, index }) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      <Box sx={{ minWidth: "92px" }}>
+    <Box sx={styles.groupBox}>
+      <Box sx={styles.operationDp}>
         <QueryOperationDropDown index={index} />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          borderLeft: "1px solid #e8eaee",
-          paddingLeft: "10px",
-          width: "100%",
-          gap: "10px",
-        }}
-      >
+      <Box sx={styles.childSection}>
         {item?.fieldGroup?.map((itm, idx) => (
           <Box key={itm.key}>
             <FilterChildSection index={index} childIndex={idx} />
           </Box>
         ))}
-        <Box sx={{ marginTop: "10px" }}>
+        <Box sx={styles.action}>
           <AddRemoveActions isGroupFilter={true} index={index} />
         </Box>
       </Box>
@@ -54,26 +38,12 @@ const FilterSimple = ({ index }) => {
   }, [dispatch, index]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      <Box sx={{ minWidth: "92px" }}>
+    <Box sx={styles.simpleBox}>
+      <Box sx={styles.operationDp}>
         <QueryOperationDropDown index={index} />
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-          gap: "10px",
-        }}
-      >
+      <Box sx={styles.row}>
         <Field index={index} />
         <Operation index={index} />
         <ValueDropDown index={index} />
@@ -96,6 +66,37 @@ const FilterSection = ({ item, index }) => {
       )}
     </Box>
   );
+};
+
+export const styles = {
+  groupBox: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "10px",
+  },
+  operationDp: { minWidth: "92px" },
+  childSection: {
+    display: "flex",
+    flexDirection: "column",
+    borderLeft: "1px solid #e8eaee",
+    paddingLeft: "10px",
+    width: "100%",
+    gap: "10px",
+  },
+  action: { marginTop: "10px" },
+  simpleBox: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "10px",
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    gap: "10px",
+  },
 };
 
 export default FilterSection;

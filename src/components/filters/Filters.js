@@ -23,39 +23,10 @@ const Filters = () => {
   }, [hideUser]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <Paper
-        sx={{
-          width: "850px",
-          padding: "1rem",
-          maxHeight: "100vh",
-          overflowY: "scroll",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            marginBottom: "2rem",
-            gap: "10px",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: "20px",
-              fontWeight: "500",
-              marginRight: "auto",
-            }}
-          >
-            Filters
-          </Typography>
+    <Box sx={styles.mainBox}>
+      <Paper sx={styles.paper}>
+        <Box sx={styles.header}>
+          <Typography sx={styles.heading}>Filters</Typography>
           <Button onClick={showTag} startIcon={<AddIcon />} variant="outlined">
             Create Tag
           </Button>
@@ -63,14 +34,14 @@ const Filters = () => {
             Create User
           </Button>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <Box sx={styles.filterSection}>
           {filter.fields.map((item, index) => (
             <Box key={item.key}>
               <FilterSection item={item} index={index} />
             </Box>
           ))}
         </Box>
-        <Box sx={{ marginTop: "10px" }}>
+        <Box sx={styles.actionBox}>
           <AddRemoveActions />
         </Box>
       </Paper>
@@ -82,6 +53,34 @@ const Filters = () => {
       )}
     </Box>
   );
+};
+
+const styles = {
+  mainBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
+  paper: {
+    width: "850px",
+    padding: "1rem",
+    maxHeight: "100vh",
+    overflowY: "scroll",
+  },
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    marginBottom: "2rem",
+    gap: "10px",
+  },
+  heading: {
+    fontSize: "20px",
+    fontWeight: "500",
+    marginRight: "auto",
+  },
+  filterSection: { display: "flex", flexDirection: "column", gap: "10px" },
+  actionBox: { marginTop: "10px" },
 };
 
 export default Filters;

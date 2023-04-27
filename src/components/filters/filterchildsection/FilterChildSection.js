@@ -7,6 +7,7 @@ import ValueDropDown from "../filtercomponents/value/ValueDropDown";
 import Field from "../filtercomponents/field/Field";
 import { deleteChildFilter } from "../../../store/reducers/filter";
 import { useDispatch } from "react-redux";
+import { styles } from "../filtersection/FilterSection";
 
 const FilterChildSection = ({ index, childIndex }) => {
   const dispatch = useDispatch();
@@ -16,29 +17,15 @@ const FilterChildSection = ({ index, childIndex }) => {
   }, [dispatch, index, childIndex]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      <Box sx={{ minWidth: "92px" }}>
+    <Box sx={styles.groupBox}>
+      <Box sx={styles.operationDp}>
         <QueryOperationDropDown
           isGroupFilter={true}
           index={index}
           childIndex={childIndex}
         />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-          gap: "10px",
-        }}
-      >
+      <Box sx={styles.row}>
         <Field index={index} childIndex={childIndex} isGroupFilter={true} />
         <Operation index={index} childIndex={childIndex} isGroupFilter={true} />
         <ValueDropDown

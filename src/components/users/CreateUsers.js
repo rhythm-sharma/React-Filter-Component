@@ -20,24 +20,20 @@ const CreateUsers = ({ isVisible, handleClose }) => {
       handleClose={handleClose}
       title={<Typography variant="h6">Create User</Typography>}
     >
-      <Box sx={{ padding: "1rem" }}>
+      <Box sx={styles.mainBox}>
         <TextField
-          sx={{ width: "100%" }}
+          sx={styles.fields}
           placeholder="create user"
           onChange={(event) => {
             setUser(event.target.value);
           }}
         />
-        <Box sx={{ display: "flex", gap: "12px", paddingTop: "20px" }}>
-          <Button
-            sx={{ flex: "1 1 0" }}
-            variant="outlined"
-            onClick={handleClose}
-          >
+        <Box sx={styles.buttonBox}>
+          <Button sx={styles.btn} variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
           <Button
-            sx={{ flex: "1 1 0" }}
+            sx={styles.btn}
             variant="contained"
             onClick={handleOnAddUsers}
           >
@@ -47,6 +43,13 @@ const CreateUsers = ({ isVisible, handleClose }) => {
       </Box>
     </Modal>
   );
+};
+
+const styles = {
+  mainBox: { padding: "1rem" },
+  fields: { width: "100%" },
+  buttonBox: { display: "flex", gap: "12px", paddingTop: "20px" },
+  btn: { flex: "1 1 0" },
 };
 
 export default CreateUsers;
