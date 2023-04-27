@@ -50,7 +50,6 @@ const FilterSimple = ({ index }) => {
   const dispatch = useDispatch();
 
   const onDeleteFilterRow = useCallback(() => {
-    console.log("index: ", index);
     dispatch(deleteFilter({ index }));
   }, [dispatch, index]);
 

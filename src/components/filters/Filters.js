@@ -10,9 +10,6 @@ import useBoolean from "../../hooks/useBoolean";
 
 const Filters = () => {
   const filter = useSelector((state) => state.filter.filter);
-  const userOptions = useSelector((state) => state.filter.userOptions);
-
-  console.log("userOptions: ", userOptions);
 
   const [isTagVisible, showTag, hideTag] = useBoolean();
   const [isUserVisible, showUser, hideUser] = useBoolean();
