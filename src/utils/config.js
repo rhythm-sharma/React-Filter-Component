@@ -23,6 +23,32 @@ const valueComponentType = {
   NONE: "none",
 };
 
+const statusOptions = ["TO DO", "COMPLETED"];
+
+const fieldOptions = [
+  "Status",
+  "Tags",
+  "Due Date",
+  "Priority",
+  "Assignee",
+  "Archived",
+  "Assigned Comment",
+  "Created By",
+  "Date Closed",
+  "Date Created",
+  "Date Updated",
+  "Date Done",
+  "Dependency",
+  "Recurring",
+  "Start Date",
+  "Status Is Closed",
+  "Time Estimate",
+  "Time Track",
+  "Sprint Point",
+  "Watcher",
+  "Milestone",
+];
+
 const operationOptions = {
   Status: [
     { label: "is", valueComponent: "status" },
@@ -164,4 +190,6 @@ export {
   operationOptions,
   dateFormat,
   getDateByFormat,
+  fieldOptions,
+  statusOptions,
 };

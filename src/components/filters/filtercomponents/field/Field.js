@@ -5,31 +5,7 @@ import {
   updateOnFilterValueChange,
   updateOnChildFilterValueChange,
 } from "../../../../store/reducers/filter";
-import { operationOptions } from "../../../../utils/config";
-
-const options = [
-  "Status",
-  "Tags",
-  "Due Date",
-  "Priority",
-  "Assignee",
-  "Archived",
-  "Assigned Comment",
-  "Created By",
-  "Date Closed",
-  "Date Created",
-  "Date Updated",
-  "Date Done",
-  "Dependency",
-  "Recurring",
-  "Start Date",
-  "Status Is Closed",
-  "Time Estimate",
-  "Time Track",
-  "Sprint Point",
-  "Watcher",
-  "Milestone",
-];
+import { operationOptions, fieldOptions } from "../../../../utils/config";
 
 const Field = ({ index, childIndex, isGroupFilter = false }) => {
   const dispatch = useDispatch();
@@ -70,7 +46,7 @@ const Field = ({ index, childIndex, isGroupFilter = false }) => {
       }}
       size="small"
       value={value}
-      options={options.map((option) => option)}
+      options={fieldOptions.map((option) => option)}
       getOptionLabel={(option) => option ?? ""}
       onChange={onChange}
       renderInput={(params) => (

@@ -2,11 +2,10 @@ import React from "react";
 import { Autocomplete, Checkbox, TextField } from "@mui/material";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import { statusOptions } from "../../../../../utils/config";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
-const options = ["TO DO", "COMPLETED"];
 
 const Status = ({ onChange, value }) => {
   return (
@@ -14,7 +13,7 @@ const Status = ({ onChange, value }) => {
       sx={{ width: "100%" }}
       size="small"
       multiple
-      options={options}
+      options={statusOptions}
       value={value ?? []}
       disableCloseOnSelect
       limitTags={1}
